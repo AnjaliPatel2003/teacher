@@ -63,7 +63,7 @@ st.markdown("---")
 st.markdown("### 📸 View Teacher Photo")
 
 teacher_options = [
-    "Rahul Sir", "Chhaya Mam", "Jay", "Suraj", "Vaishanavi", "Vikas", "Priyanka"
+    "Rahul Sir", "Chhaya Mam", "Jay sir", "Suraj sir", "Vaishanavi mam", "Vikas sir", "Priyanka mam"
 ]
 
 IMG_DIR = Path("images")
@@ -73,11 +73,11 @@ IMG_DIR.mkdir(exist_ok=True)  # create if missing
 teacher_to_file = {
     "Rahul Sir": "rahul sir",
     "Chhaya Mam": "chhaya mam",
-    "Jay": "jay",
-    "Suraj": "suraj",
-    "Vaishanavi": "vaishanavi",
-    "Vikas": "vikas",
-    "Priyanka": "priyanka",
+    "Jay sir": "jay",
+    "Suraj sir": "suraj",
+    "Vaishanavi mam": "vaishanavi",
+    "Vikas sir": "vikas",
+    "Priyanka mam": "priyanka",
 }
 
 def _normalize_text(s: str) -> str:
@@ -133,6 +133,8 @@ with c2:
         try:
             img = Image.open(img_path)
             st.image(img, caption=selected, use_column_width=True)
+            st.image(img,caption=selected,width=15)
+            
         except UnidentifiedImageError:
             st.error(f"⚠️ Found file '{img_path.name}' but it couldn't be opened as an image. Try re-saving the image.")
         except Exception as e:
